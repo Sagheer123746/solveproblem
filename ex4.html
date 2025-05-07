@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4</title>
+    <script>
+         function f(a, b, l) {
+            let sum = 0;
+            for (let i = 0; i < l.length; i++) {
+                if (l[i] % a === 0 || l[i] % b === 0) {
+                    sum += l[i];
+                }
+            }
+            return sum;
+        }
+
+        function calculate() {
+            let a = parseInt(document.getElementById('a').value);
+            let b = parseInt(document.getElementById('b').value);
+            let arrayInput = document.getElementById('array').value;
+            
+            let l = arrayInput.split(',').map(Number);
+
+            let result = f(a, b, l);
+            document.getElementById('result').textContent = result;
+        }
+
+    </script>
+</head>
+<body>
+    
+    <h2>Exercise 4: Sum of Multiples of a or b</h2>
+
+    <p>Enter two numbers (a and b), and a list of numbers separated by commas.</p>
+
+    <label>Enter first number (a):</label>
+    <input type="number" id="a"><br><br>
+
+    <label>Enter second number (b):</label>
+    <input type="number" id="b"><br><br>
+
+    <label>Enter numbers (separated by commas):</label>
+    <input type="text" id="array"><br><br>
+
+    <button onclick="calculate()">Get Sum</button>
+
+    <h3>Result: <span id="result">--</span></h3>
+
+    
+</body>
+</html>
